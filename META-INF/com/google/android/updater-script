@@ -1,0 +1,86 @@
+# Before: ui_print("  Hi! ");
+# Now:    ui_print " Hi! "
+#-----------Dynamic Installer Configs-----------#
+#The #MAGISK tag is required, dont remove it
+#MAGISK
+setdefault   magisk_support       on
+setdefault   ensure_rw            on
+setdefault   import_addons        off
+setdefault   apex_mount           off
+setdefault   overwrite_symlinks   off
+setdefault   devices              "SM-G975F"
+setdefault   devices_alert        on
+setdefault   dalvik_memory        800M
+setdefault   extraction_speed     24M
+setdefault   off_readonly         ""
+setdefault   permissions          "0:0:0755:0644"
+#-----------------------------------------------#
+#Your script starts here:
+
+ui_print "#################################################"
+ui_print "# ShitStockMod em beta (Via OTA)
+ui_print "#################################################"
+mount_all
+
+ui_print "Averiguando se o recovery é o recomendado.."
+ui_print " "
+
+if get_file_prop /default.prop "ro.bionic.arch"; then
+	ui_print "Você está usando recovery Ivan ou outros"
+	abort "Instale o recovery com suporte oficial TWRP recomendado no guide de instalação"
+	ui_print " "
+else
+	ui_print "Instalação rodando em recovery oficial"
+	ui_print "Proseguindo..."
+	ui_print " "
+	sleep 1
+fi
+
+if find_block "odm"; then
+	ui_print "Repartição detectada!!"
+	ui_print " "
+	abort "Reinstale a stock para voltar ao padrão."
+else
+	ui_print "Tudo ok. Proseguindo..."
+	ui_print " "
+fi
+
+ui_print " "
+ui_print "formatando as partições"
+wipe system product vendor
+ui_print " "
+
+ui_print "instalando o sistema..."
+ui_print " "
+if update_zip -tmp /sdcard -xz system.img.xz $(find_block system); then
+	ui_print " "
+	ui_print "S:Ok"
+else
+	abort "Falha!! zip corrompido ou img modificada"
+fi
+
+if update_zip -xz product.img.xz $(find_block product); then
+	ui_print " "
+	ui_print "P:Ok"
+else
+	abort "Falha!! zip corrompido ou img modificada"
+fi
+
+if update_zip -xz vendor.img.xz $(find_block vendor); then
+	ui_print " "
+	ui_print "V:Ok"
+else
+	abort "Falha!! zip corrompido ou img modificada"
+fi
+
+ui_print "Instalando kernel..."
+package_extract_file boot.img "$(find_block boot)"
+package_extract_file dt.img "$(find_block dtb)"
+package_extract_file vbmeta.img "$(find_block vbmeta)"
+
+ui_print "Instalação foi bem sucedida"
+ui_print " "
+ui_print "Limpando cache/dalvik"
+wipe cache dalvik
+
+end "Te espero no proximo instalador :)"

@@ -1,4 +1,4 @@
-# SSM For S10+
+# SSM 5.1 For S10+
 
 Apenas para testes
 

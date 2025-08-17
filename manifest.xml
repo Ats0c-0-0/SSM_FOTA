@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OnOTAInfo>
+  <RomName>ShitStockMod</RomName>
+  <VersionName>v3</VersionName>
+  <BuildNumber type="integer">v3.1A_r1</BuildNumber>
+  <DownloadURL>https://pixeldrain.com/api/file/6Pcjc33h?download</DownloadURL>
+  <AndroidVer>13</AndroidVer>
+  <OneUIVer>5.1</OneUIVer>
+  <CheckMD5>3df5e3f6ba501a1d1c260d3cb12aa7e3</CheckMD5>
+  <FileSize type="long">990000000</FileSize>
+  <WebsiteURL>https://forum.xda-developers.com/apps/magisk/dev-magisk-canary-channel-bleeding-edge-t3839337</WebsiteURL>
+  <ChangelogHeader>https://i.ibb.co/92RxppQ/changelogheader1100.png</ChangelogHeader>
+  <ChangelogURL>https://raw.githubusercontent.com/Ats0c-0-0/ShitStockMod/cdc16546d8a6df7c054ddc9839d6b4d3f379f347/ManiChan/changelog.txt</ChangelogURL>
+</OnOTAInfo>

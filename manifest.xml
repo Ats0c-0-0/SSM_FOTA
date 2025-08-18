@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OnOTAInfo>
   <RomName>ShitStockMod</RomName>
-  <VersionName>v3</VersionName>
+  <VersionName>v3 update</VersionName>
   <BuildNumber type="integer">v3.1A_r1</BuildNumber>
   <DownloadURL>https://pixeldrain.com/api/file/6Pcjc33h?download</DownloadURL>
   <AndroidVer>13</AndroidVer>
@@ -12,4 +12,5 @@
   <ChangelogHeader>https://i.ibb.co/92RxppQ/changelogheader1100.png</ChangelogHeader>
   <ChangelogURL>https://raw.githubusercontent.com/At30c/SSM-UF/refs/heads/main/changelog.txt</ChangelogURL>
 </OnOTAInfo>
+
 
